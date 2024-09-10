@@ -1,129 +1,138 @@
 /* Grundinställningar */
+
+/* Nollställer marginaler och fyllningar för alla element så att designen blir konsekvent. */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Säkerställer att padding och border inkluderas i elementets totala bredd/höjd. */
 }
 
+/* Kroppselementets inställningar */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+    font-family: Arial, sans-serif; /* Anger standardtypsnittet för texten på sidan. */
+    line-height: 1.6; /* Gör texten mer lättläst genom att öka avståndet mellan raderna. */
+    color: #333; /* Anger textfärgen (mörkgrå). */
+    display: grid; /* Använder CSS Grid-layout för att arrangera innehållet. */
+    grid-template-rows: auto 1fr auto; /* Anger layouten i rader: header, main content och footer. */
     grid-template-areas:
         "header"
         "main-content"
-        "footer";
-    height: 100vh;
+        "footer"; /* Definierar grid-områdena för header, main content och footer. */
+    height: 100vh; /* Sätter kroppens höjd till hela höjden av webbläsarfönstret. */
 }
 
+/* Header-inställningar */
 header {
-    grid-area: header;
+    grid-area: header; /* Placerar header-elementet i grid-området "header". */
 }
 
+/* Navigationsfältet ska inte ha någon marginal under sig. */
 .navbar {
     margin-bottom: 0;
 }
 
-/* Main Content */
+/* Main Content - Huvudinnehåll */
 .main-content {
-    grid-area: main-content;
-    display: grid;
-    grid-template-columns: 1fr;
+    grid-area: main-content; /* Definierar att detta är huvudområdet. */
+    display: grid; /* Använder en grid-layout för sektionerna i huvudinnehållet. */
+    grid-template-columns: 1fr; /* Skapar en kolumn i grid-layouten. */
     grid-template-areas:
         "hero"
         "about"
         "services"
-        "contact";
+        "contact"; /* Definierar layout för hero, about, services och contact-sektionerna. */
 }
 
+/* Hero-sektionen - introduktion eller välkomstdel */
 .hero {
-    grid-area: hero;
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 5rem 2rem;
+    grid-area: hero; /* Placerar hero-sektionen i grid-området "hero". */
+    background-color: #f4f4f4; /* Ljusgrå bakgrundsfärg. */
+    text-align: center; /* Centrera textinnehållet. */
+    padding: 5rem 2rem; /* Ger utrymme runt sektionens innehåll. */
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3rem; /* Stor storlek på huvudrubriken i hero-sektionen. */
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-top: 1rem;
+    font-size: 1.2rem; /* Lite större textstorlek för paragrafen. */
+    margin-top: 1rem; /* Ger utrymme ovanför paragrafen. */
 }
 
-/* About Section */
+/* About-sektionen - information om sidan */
 .about-section {
-    grid-area: about;
-    padding: 3rem 2rem;
-    background-color: #ffffff;
-    text-align: center;
+    grid-area: about; /* Placerar about-sektionen i grid-området "about". */
+    padding: 3rem 2rem; /* Ger utrymme runt innehållet. */
+    background-color: #ffffff; /* Vit bakgrundsfärg. */
+    text-align: center; /* Centrera texten. */
 }
 
-/* Services Section */
+/* Services-sektionen - lista över tjänster */
 .services-section {
-    grid-area: services;
-    padding: 3rem 2rem;
-    background-color: #f4f4f4;
+    grid-area: services; /* Placerar services-sektionen i grid-området "services". */
+    padding: 3rem 2rem; /* Ger utrymme runt innehållet. */
+    background-color: #f4f4f4; /* Ljusgrå bakgrundsfärg. */
 }
 
+/* Layout för tjänsterna i services-sektionen */
 .service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    display: grid; /* Använder grid-layout för att arrangera tjänsterna. */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Anpassar kolumner beroende på skärmbredd. */
+    gap: 1.5rem; /* Ger mellanrum mellan varje tjänst-box. */
 }
 
+/* Individuell service-box */
 .service-box {
-    background-color: white;
-    padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    background-color: white; /* Vit bakgrund. */
+    padding: 2rem; /* Utrymme inuti boxen. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lätt skugga runt boxen. */
+    text-align: center; /* Centrera texten i varje box. */
 }
 
 .service-box h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Ger utrymme under rubriken. */
 }
 
-/* Contact Section */
+/* Contact-sektionen - kontaktinformation */
 .contact-section {
-    grid-area: contact;
-    padding: 3rem 2rem;
-    background-color: #ffffff;
-    text-align: center;
+    grid-area: contact; /* Placerar contact-sektionen i grid-området "contact". */
+    padding: 3rem 2rem; /* Ger utrymme runt innehållet. */
+    background-color: #ffffff; /* Vit bakgrundsfärg. */
+    text-align: center; /* Centrera texten. */
 }
 
-/* Footer */
+/* Footer - sidans nedersta del */
 .footer {
-    grid-area: footer;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
+    grid-area: footer; /* Placerar footer i grid-området "footer". */
+    background-color: #333; /* Mörkgrå bakgrundsfärg. */
+    color: white; /* Vit textfärg. */
+    text-align: center; /* Centrera texten. */
+    padding: 1rem 0; /* Utrymme ovanför och under texten. */
+    margin-top: 2rem; /* Lägger till mellanrum ovanför footern. */
 }
 
-/* Responsiv design */
+/* Responsiv design för skärmar som är minst 768px breda */
 @media (min-width: 768px) {
     .main-content {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr; /* Två kolumner för huvudsektionerna. */
         grid-template-areas:
             "hero hero"
             "about services"
-            "contact contact";
+            "contact contact"; /* Hero-sektionen tar upp två kolumner, about och services tar en var. */
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Justerar rubrikstorleken för mellanstora skärmar. */
     }
 }
 
+/* Responsiv design för skärmar som är minst 1024px breda */
 @media (min-width: 1024px) {
     .main-content {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr; /* Tre kolumner i huvudsektionen. */
         grid-template-areas:
             "hero hero hero"
-            "about services contact";
+            "about services contact"; /* Hero tar upp hela den övre raden, under delas kolumnerna upp. */
     }
 }

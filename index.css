@@ -1,0 +1,129 @@
+/* Grundinställningar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "main-content"
+        "footer";
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+/* Main Content */
+.main-content {
+    grid-area: main-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "hero"
+        "about"
+        "services"
+        "contact";
+}
+
+.hero {
+    grid-area: hero;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+/* About Section */
+.about-section {
+    grid-area: about;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+/* Services Section */
+.services-section {
+    grid-area: services;
+    padding: 3rem 2rem;
+    background-color: #f4f4f4;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-box {
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-box h3 {
+    margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.contact-section {
+    grid-area: contact;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* Responsiv design */
+@media (min-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "hero hero"
+            "about services"
+            "contact contact";
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+            "hero hero hero"
+            "about services contact";
+    }
+}

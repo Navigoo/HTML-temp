@@ -15,9 +15,10 @@ body {
     display: grid; /* Använder CSS Grid-layout för att arrangera innehållet. */
     grid-template-rows: auto 1fr auto; /* Anger layouten i rader: header, main content och footer. */
     grid-template-areas:
-        "header"
-        "main-content"
-        "footer"; /* Definierar grid-områdena för header, main content och footer. */
+        'header'
+        'hero'
+        'main-content'
+        'footer'; /* Definierar grid-områdena för header, main content och footer. */
     height: 100vh; /* Sätter kroppens höjd till hela höjden av webbläsarfönstret. */
 }
 
@@ -31,16 +32,62 @@ header {
     margin-bottom: 0;
 }
 
+/* Hero Image */
+.hero {
+    grid-area: hero;
+    position: relative;
+    height: 100vh;
+    background-image: url(/img/clay-banks-88MCU26XFM4-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        grid-area: hero;
+        position: relative;
+        height: 50vh;
+        background-image: url(/img/clay-banks-88MCU26XFM4-unsplash-v2.jpg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(5, 5, 5, 0.526);
+}
+
+h1 {
+    position: relative;
+    color: white;
+    font-size: 3rem;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+}
+
 /* Main Content - Huvudinnehåll */
 .main-content {
     grid-area: main-content; /* Definierar att detta är huvudområdet. */
     display: grid; /* Använder en grid-layout för sektionerna i huvudinnehållet. */
     grid-template-columns: 1fr; /* Skapar en kolumn i grid-layouten. */
     grid-template-areas:
-        "hero"
-        "about"
-        "services"
-        "contact"; /* Definierar layout för hero, about, services och contact-sektionerna. */
+        'hero'
+        'about'
+        'services'
+        'contact'; /* Definierar layout för hero, about, services och contact-sektionerna. */
 }
 
 /* Hero-sektionen - introduktion eller välkomstdel */
@@ -78,7 +125,10 @@ header {
 /* Layout för tjänsterna i services-sektionen */
 .service-grid {
     display: grid; /* Använder grid-layout för att arrangera tjänsterna. */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Anpassar kolumner beroende på skärmbredd. */
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    ); /* Anpassar kolumner beroende på skärmbredd. */
     gap: 1.5rem; /* Ger mellanrum mellan varje tjänst-box. */
 }
 
@@ -117,9 +167,9 @@ header {
     .main-content {
         grid-template-columns: 1fr 1fr; /* Två kolumner för huvudsektionerna. */
         grid-template-areas:
-            "hero hero"
-            "about services"
-            "contact contact"; /* Hero-sektionen tar upp två kolumner, about och services tar en var. */
+            'hero hero'
+            'about services'
+            'contact contact'; /* Hero-sektionen tar upp två kolumner, about och services tar en var. */
     }
 
     .hero h1 {
@@ -132,7 +182,7 @@ header {
     .main-content {
         grid-template-columns: 1fr 1fr 1fr; /* Tre kolumner i huvudsektionen. */
         grid-template-areas:
-            "hero hero hero"
-            "about services contact"; /* Hero tar upp hela den övre raden, under delas kolumnerna upp. */
+            'hero hero hero'
+            'about services contact'; /* Hero tar upp hela den övre raden, under delas kolumnerna upp. */
     }
 }
